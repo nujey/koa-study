@@ -11,6 +11,7 @@ const redirect = ctx => {
 }
 
 const about = ctx => {
+  console.log(ctx)
   ctx.response.type = 'html'
   ctx.response.body = "<p>我是重定向的页面</p><a href='/templateHtml'>点击回到首页</a>"
 }
