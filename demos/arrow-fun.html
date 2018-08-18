@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let fn = x => x * x
+    // console.log(fn(2))
+    let fn2 = () => 3.14
+    // console.info(fn2())
+    let fn3 = (x, y) => x + y + 3
+    console.log(fn3(1, 2))
+
+
+    const params = [1, 2, 3]
+
+    let fn4 = (x, y, params) => {
+      console.log(params instanceof Array) // true
+      console.log(typeof params)
+    }
+
+    fn4(1, 2, ...params)
+  </script>
+</body>
+</html>
