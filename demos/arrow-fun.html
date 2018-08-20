@@ -13,7 +13,7 @@
     let fn2 = () => 3.14
     // console.info(fn2())
     let fn3 = (x, y) => x + y + 3
-    console.log(fn3(1, 2))
+    // console.log(fn3(1, 2))
 
 
     const params = [1, 2, 3]
@@ -23,7 +23,31 @@
       console.log(typeof params)
     }
 
-    fn4(1, 2, ...params)
+    // fn4(1, 2, ...params)
+    const obj1 = {
+      birth: 1993,
+      getAge: function () {
+        console.log(this)
+        const fn = function () {
+          return new Date().getFullYear() - this.birth
+        }
+        return fn()
+      }
+    }
+    const obj2 = {
+      birth: 1993,
+      getAge: function () {
+        console.log(this)
+        return new Date().getFullYear() - this.birth
+      }
+    }
+    // obj1.getAge()
+    // obj2.getAge()
+    const obj3 = {
+      birth: 1993,
+      getAge: () => new Date().getFullYear() - this.birth
+    }
+    obj3.getAge()
   </script>
 </body>
 </html>
