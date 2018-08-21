@@ -45,9 +45,26 @@
     // obj2.getAge()
     const obj3 = {
       birth: 1993,
-      getAge: () => new Date().getFullYear() - this.birth
+      getAge: function() {
+        var b = this.birth
+        var fn = () => {
+          console.log(new Date().getFullYear() - this.birth)
+          return new Date().getFullYear() - this.birth
+        }
+        fn()
+      }
     }
-    obj3.getAge()
+    // obj3.getAge()
+    var obj4 = {
+      birth: 1998,
+      getAge: function () {
+        var fn = function() {
+          return new Date().getFullYear() - this.birth
+        }
+        return fn.call({birth: 1999})
+      }
+    }
+    console.log(obj4.getAge())
   </script>
 </body>
 </html>
