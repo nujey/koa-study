@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>promise</title>
+</head>
+<body>
+  <script>
+    function test(resolve, reject) {
+      setTimeout(() => {
+        const res = {
+          code: 200,
+          result: {
+            id: 1,
+            name: 'resolve'
+          },
+          msg: '成功'
+        }
+        resolve(res)
+      }, 2000)
+    }
+    function ajax() {
+      return new Promise(test)
+    }
+    ajax().then(data => {
+      console.log(data)
+      // return new Promise(function(resolve, reject) {
+      //   setTimeout(() => {
+      //     resolve('第二次的时候成功，有第三次')
+      //   }, 2000)
+      // })
+      return '333'
+    }).then(data => {
+      console.log(data)
+      return '2'
+    }).then(data => {
+      console.log(data, 22222)
+    }).catch(error => {
+      console.log(error, 111)
+    })
+  </script>
+</body>
+</html>

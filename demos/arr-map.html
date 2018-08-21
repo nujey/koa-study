@@ -11,7 +11,18 @@
     console.log([1, 2, 3].map(parseInt))
     const map = Array.prototype.map
     const a = map.call('abc', x => x.charCodeAt(0))
-    console.log(a)
+    // console.log(a)
+    const arr = [1, 'a', 2, 'b', 3, 'c', 4, 'd']
+    const fn = (x) => {
+      console.log(typeof x)
+      if (typeof x === 'number') {
+        return x
+      } else {
+        return ''
+      }
+    }
+    const newArr = arr.map(fn)
+    console.log(newArr)
   </script>
 </body>
 </html>
