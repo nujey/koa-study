@@ -50,6 +50,21 @@
     Promise.all(promise).then(data => {
       console.log(data)
     })
+    // promise.race
+    var p1 = new Promise(function(resolve, reject) {
+      setTimeout(resolve, 3000, 'p1,doned')
+    })
+    var p2 = new Promise(function(resolve, reject) {
+      setTimeout(resolve, 2000, 'p2,doned')
+    })
+    var p3 = new Promise(function(resolve, reject) {
+      setTimeout(resolve, 1000, 'p3,doned')
+    })
+    Promise.race([p1, p2, p3]).then(data => {
+      console.log(data)
+    }).catch(error => {
+      console.log(error)
+    })
   </script>
 </body>
 </html>
