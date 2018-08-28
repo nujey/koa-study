@@ -10,26 +10,24 @@
 <body>
   <div id="app">
     {{test}}
+   <p>页面的路径是：{{createdText}}</p>
   </div>
   <script>
     var testApp = new Vue({
       el: "#app",
       data() {
         return {
-          test: '1111'
+          test: '1111',
+          createdText: ''
         }
       },
-      beforeCreate() {
-        console.log(1)
-      },
       created() {
-        console.log(2)
-      },
-      beforeMount() {
-        console.log(3)
+        this.createdText = 'credted' + window.location.href
       },
       mounted() {
-        console.log(4)
+        setTimeout(() => {
+          this.createdText = 'mounted' + window.location.href
+        }, 2000)
       },
       beforeUpdate() {
         console.log(5)
