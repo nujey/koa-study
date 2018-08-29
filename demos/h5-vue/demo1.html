@@ -11,6 +11,10 @@
   <div id="app">
     {{test}}
    <p>页面的路径是：{{createdText}}</p>
+
+
+   <p v-for="(item, index) in list">{{index}} ~ {{item}}</p>
+
   </div>
   <script>
     var testApp = new Vue({
@@ -18,7 +22,8 @@
       data() {
         return {
           test: '1111',
-          createdText: ''
+          createdText: '',
+          list: ['web', 'java', 'html']
         }
       },
       created() {
