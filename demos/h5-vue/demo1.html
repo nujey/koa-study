@@ -15,6 +15,7 @@
 
    <p v-for="(item, index) in list">{{index}} ~ {{item}}</p>
 
+   <button v-on:click="handle"></button>
   </div>
   <script>
     var testApp = new Vue({
@@ -33,6 +34,11 @@
         setTimeout(() => {
           this.createdText = 'mounted' + window.location.href
         }, 2000)
+      },
+      methods: {
+        handle: function() {
+          console.log(1)
+        }
       },
       beforeUpdate() {
         console.log(5)
