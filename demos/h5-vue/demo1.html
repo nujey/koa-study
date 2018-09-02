@@ -10,12 +10,18 @@
 <body>
   <div id="app">
     {{test}}
-   <p>页面的路径是：{{createdText}}</p>
+   <!-- <p>页面的路径是：{{createdText}}</p> -->
+   <p v-html="createdText" v-if="createdText === '000'"></p>
 
-
+   <input type="text" v-model="createdText">
    <p v-for="(item, index) in list">{{index}} ~ {{item}}</p>
+   <p v-on:click="handle">点击</p>
 
-   <button v-on:click="handle"></button>
+
+   <p v-for="(item, index) in list">
+     {{index}} ---- {{item}}
+     <span v></span>
+   </p>
   </div>
   <script>
     var testApp = new Vue({
@@ -23,21 +29,37 @@
       data() {
         return {
           test: '1111',
-          createdText: '',
-          list: ['web', 'java', 'html']
+          createdText: '00000',
+          list: [{
+            html:'web1',
+            code: '0000',
+            id: '1111',
+            item: ['item1', 'item2']
+          }, {
+            html:'web2',
+            code: '1111',
+            id: '0000',
+            item: ['item1', 'item2']
+          }]
         }
       },
       created() {
-        this.createdText = 'credted' + window.location.href
+        // setTimeout(() => {
+        //   this.createdText = 'credted' + window.location.href
+        // }, 2000)
       },
       mounted() {
-        setTimeout(() => {
-          this.createdText = 'mounted' + window.location.href
-        }, 2000)
+        // setTimeout(() => {
+        //   this.createdText = 'mounted' + '0000000000'
+        // }, 4000)
+        // // setInterval(function (){
+        // //   console.log(this)
+        // // }, 1000)
+        this.handle()
       },
       methods: {
         handle: function() {
-          console.log(1)
+          alert(1111)
         }
       },
       beforeUpdate() {
