@@ -9,17 +9,31 @@
 </head>
 <body>
   <div id="app">
-    <p>{{test}}</p>
-  </div>
-  <div id="app2">
-    {{test}}
+    <p v-for="item in wsList">{{item}}</p>
   </div>
   <script>
     var app = new Vue({
       el: '#app',
       data() {
         return {
-          test: '1111'
+          test: '1111',
+          wsList: []
+        }
+      },
+      created() {
+        let ws = new WebSocket("ws://127.0.0.1:9001")
+        console.log(ws)
+        const that = this
+        ws.onopen = function() {
+          that.wsList.push('连接成功')
+          ws.send('我链接成功了')
+        }
+        ws.onmessage = function(e) {
+          console.log(e, 1111)
+          that.wsList.push(e.data)
+        }
+        ws.onerror = function() {
+          console.log('我连接失败了')
         }
       }
     })

@@ -2,6 +2,7 @@ const Koa = require('koa')
 const app = new Koa()
 
 const main = ctx => {
+  console.log(ctx)
   if (ctx.request.path !== '/') {
     ctx.response.type = 'html'
     ctx.response.body = "<a href='/'>跳转到首页</a>"
