@@ -10,30 +10,43 @@
 <body>
   <div id="app">
     <p v-for="item in wsList">{{item}}</p>
+    <button @click="handleLCick">点击发送消息</button>
   </div>
   <script>
+    let ws
     var app = new Vue({
       el: '#app',
       data() {
         return {
-          test: '1111',
+          test: 1,
           wsList: []
         }
       },
       created() {
-        let ws = new WebSocket("ws://127.0.0.1:9001")
-        console.log(ws)
+        ws = new WebSocket("ws://127.0.0.1:9001/test")
         const that = this
         ws.onopen = function() {
           that.wsList.push('连接成功')
           ws.send('我链接成功了')
         }
         ws.onmessage = function(e) {
-          console.log(e, 1111)
-          that.wsList.push(e.data)
+          const msg = JSON.parse(e.data)
+          that.wsList.push(msg)
         }
         ws.onerror = function() {
           console.log('我连接失败了')
+        }
+      },
+      methods: {
+        handleLCick: function() {
+          this.test++
+          const param = {
+            id: this.test,
+            msg: '我点击发送' + this.test
+          }
+          setInterval(() => {
+            ws.send(JSON.stringify(param))
+          }, 2000)
         }
       }
     })
