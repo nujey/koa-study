@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闪电css</title>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0; padding: 0;
+    }
+    /* html, body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+    .test {
+      width: 40px; height: 40px;
+      position: absolute; top: calc(50% - 20px); left: calc(50% - 20px);
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0px 0px 60px 30px #fff, 0 0 100px 60px #f0f, 0 0 150px 100px #0ff;
+    } */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: radial-gradient(#222, #000);
+      background-attachment: fixed;
+    }
+    body {
+      position: absolute;
+      top: calc(50% - 65px);
+      left: calc(50% - 455px);
+      margin: 0 auto;
+      overflow: hidden;
+      text-align: center;
+      white-space: nowrap;
+      font-size: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .lum {
+      position: relative;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin: 50px;
+      border-radius: 50%;
+      background-color: #000;
+      box-shadow: 0 0 40px 20px #fff, 0 0 100px 50px #0ff;
+      transition: box-shadow 4s ease-out;
+      animation: spin 16s linear infinite;
+    }
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .lum:before, .lum:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: calc(50% - 10px);
+      left: calc(50% - 10px);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0 0 40px 20px #fff, 0 0 80px 50px #f0f;
+      opacity: 0;
+      transition: opacity 8s, transform 8s;
+    }
+    .on {
+      background-color: #fff;
+      box-shadow: 0 0 80px 40px #fff, 0 0 150px 80px #ff0;
+    }
+
+    .on::before {
+      transform: translateX(-100px);
+      opacity: 1;
+    }
+
+    .on::after {
+      transform: translateX(100px);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <div class="lum"></div>
+  <script>
+    $(function() {
+      $('.lum:nth-child(2n)').addClass('on')
+    })
+  </script>
+</body>
+</html>

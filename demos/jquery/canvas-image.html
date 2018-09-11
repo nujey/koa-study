@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="imageFile">
+</body>
+<script>
+  function getBase64(url, callback) {
+    var Img = new Image(),
+        dataUrl = '';
+      Img.src = url
+      Img.onload = function() {
+        var canvas = document.createElement("canvas"),
+            w = Img.width,
+            h = Img.height;
+          canvas.width = w
+          canvas.height = h
+          canvas.getContext("2d").drawImage(Img, 0, 0, w, h)
+          dataUrl = canvas.toDataURL('image/jpeg', 0.5)
+          callback ? callback(dataUrl) : null
+      }
+  }
+  var imageFile = document.getElementById("imageFile")
+  imageFile.addEventListener('change', function(){
+    let reader = new FileReader()
+    reader.readAsDataURL(imageFile.files[0])
+    reader.onload = function() {
+      getBase64(this.result, (res) => {
+      })
+    }
+  })
+</script>
+</html>

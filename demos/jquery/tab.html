@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div>
+    <ul class="list">
+      <li class="item">首页</li>
+      <li class="item">微商城</li>
+      <li class="item">小程序</li>
+    </ul>
+  </div>
+  <script>
+    $(function() {
+      $(".item").click(function() {
+        $(this).addClass("change").siblings().removeClass("change");
+      })
+    })
+  </script>
+</body>
+</html>
