@@ -9,6 +9,9 @@
 </head>
 <body>
   <div id="app">
+    <div>
+      <p v-for="(a, b, index) of obj">{{a}} ~ {{b}} ~ {{index}}</p>
+    </div>
     <p v-for="item in wsList">{{item}}</p>
     <button @click="handleLCick">点击发送消息</button>
   </div>
@@ -19,10 +22,17 @@
       data() {
         return {
           test: 1,
+          obj: {
+            'b4': 'four',
+            '1a': 'one',
+            'f3': 'three',
+            '2': 'two'
+          },
           wsList: []
         }
       },
       created() {
+        console.log(this.obj)
         ws = new WebSocket("ws://127.0.0.1:9001/test")
         const that = this
         ws.onopen = function() {
