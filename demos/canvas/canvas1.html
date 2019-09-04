@@ -17,6 +17,29 @@
 
     ctx.fillStyle = "rgba(0, 0, 200, .5)"
     ctx.fillRect(20, 20, 150, 100)
+
+
+    var obj = {
+      a: 'a1',
+      b: 'b2',
+      c: 'c3'
+    }
+
+    function getKeyByValue(value) {
+      for(let i of Object.entries(obj)) {
+        if (i[1] === value) {
+          console.log(i[0])
+        }
+      }
+    }
+
+    function getKeyByValue2(obj, value) {
+      return Object.keys(obj).find((k) => {
+        return obj[k] === value
+      })
+    }
+    
+    getKeyByValue('a1')
   </script>
 </body>
 </html>

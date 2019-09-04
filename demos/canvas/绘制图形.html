@@ -26,6 +26,19 @@
     ctx.beginPath();
     ctx.arc(300, 200, 50, 0, Math.PI * 1, true);
     ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath()
+    ctx.arc(100, 400, 50, 0, Math.PI * 2, true);
+    ctx.moveTo(135, 400);
+    ctx.arc(100, 400, 35, 0, Math.PI * 1, false);
+    ctx.moveTo(95, 385);
+    ctx.arc(85, 385, 10, 0, Math.PI * 2, true);
+    ctx.moveTo(125, 385);
+    ctx.arc(115, 385, 10, 0, Math.PI * 2, false);
+    ctx.moveTo(350, 400);
+    ctx.arc(300, 400, 50, 0, Math.PI * 2, false);
+    ctx.stroke();
   </script>
 </body>
 </html>
