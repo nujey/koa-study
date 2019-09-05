@@ -13,7 +13,18 @@
 
     var ctx = canvas.getContext('2d')
 
-    
+    ctx.beginPath();
+    ctx.moveTo(25, 25);
+    ctx.lineTo(25, 105);
+    ctx.lineTo(105, 105);
+    ctx.fill()
+
+    ctx.beginPath()
+    ctx.moveTo(40, 25);
+    ctx.lineTo(105, 25);
+    ctx.lineTo(105, 100)
+    ctx.closePath()
+    ctx.stroke()
   </script>
 </body>
 </html>
