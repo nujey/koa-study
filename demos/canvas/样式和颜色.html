@@ -12,6 +12,7 @@
     const canvas = document.getElementById("canvas")
     const ctx = canvas.getContext('2d')
 
+    ctx.globalAlpha = 0.2;
     for (var i=0;i<6;i++){
       for (var j=0;j<6;j++){
         ctx.fillStyle = 'rgb(' + Math.floor(255-42.5*i) + ',' + 
@@ -19,16 +20,17 @@
         ctx.fillRect(j*25,i*25,25,25);
       }
     }
-
+    ctx.globalAlpha = 0.8;
     for (var i=0;i<6;i++){
       for (var j=0;j<6;j++){
         ctx.strokeStyle = 'rgb(0,' + Math.floor(255-42.5*i) + ',' + 
                          Math.floor(255-42.5*j) + ')';
         ctx.beginPath();
-        ctx.arc(252.5+j*25,252.5+i*25,10,0,Math.PI*2,true);
+        ctx.arc(252.5+j*25,252.5+i*0,10,0,Math.PI*2,true);
         ctx.stroke();
       }
     }
+
 
     // ctx.beginPath();
     // ctx.arc(12.5*25,12.5+1*25,50,0,Math.PI*2,true);
