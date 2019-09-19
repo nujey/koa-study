@@ -18,15 +18,46 @@
     ctx.beginPath()
     ctx.moveTo(5, 10)
     ctx.lineTo(5, 100)
+    ctx.closePath()
     ctx.stroke()
+    
+    // var lineCap = '线条末端样式'['butt', 'round', 'square']
+    // var lineJoin = 'type 设定线条与线条之间接合处的样式'
+    // var miterLimit = 'value 限制两条线交界处的最大长度'
+    // var getLineDash = getLineDash()
+    // setLineDash(segments)
+    // lineDashOffset = value
 
-    var lineCap = '线条末端样式'['butt', 'round', 'square']
-    var lineJoin = 'type 设定线条与线条之间接合处的样式'
-    var miterLimit = 'value 限制两条线交界处的最大长度'
-    var getLineDash = getLineDash()
-    setLineDash(segments)
-    lineDashOffset = value
+    // 创建路径
+    ctx.strokeStyle = '#09f';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(200,50);
+    ctx.lineTo(340,50);
 
+    ctx.moveTo(200,140);
+    ctx.lineTo(340,140);
+    
+    ctx.stroke();
+
+    ctx.strokeStyle = '#0dff0f'
+    ctx.lineWidth = 15
+   
+    ctx.beginPath()
+
+    ctx.moveTo(220, 40)
+    ctx.lineTo(220, 150)
+
+    ctx.lineCap = 'square'
+    ctx.lineCap = 'round'
+
+    ctx.moveTo(280, 40)
+    ctx.lineTo(280, 150)
+
+    ctx.moveTo(320, 40)
+    ctx.lineTo(320, 150)
+
+    ctx.stroke()
   </script>
 </body>
 </html>
