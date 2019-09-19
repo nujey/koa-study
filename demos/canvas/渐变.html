@@ -21,12 +21,12 @@
     ctx.closePath()
     ctx.stroke()
     
-    // var lineCap = '线条末端样式'['butt', 'round', 'square']
-    // var lineJoin = 'type 设定线条与线条之间接合处的样式'
-    // var miterLimit = 'value 限制两条线交界处的最大长度'
+    var lineCap = '线条末端样式'['butt', 'round', 'square']
+    var lineJoin = 'type 设定线条与线条之间接合处的样式'['round', 'bevel', 'miter']
+    var miterLimit = 'value 限制两条线交界处的最大长度'
     // var getLineDash = getLineDash()
     // setLineDash(segments)
-    // lineDashOffset = value
+    var lineDashOffset = '设置虚线样式的起始偏移量'
 
     // 创建路径
     ctx.strokeStyle = '#09f';
@@ -37,7 +37,7 @@
 
     ctx.moveTo(200,140);
     ctx.lineTo(340,140);
-    
+
     ctx.stroke();
 
     ctx.strokeStyle = '#0dff0f'
@@ -48,7 +48,7 @@
     ctx.moveTo(220, 40)
     ctx.lineTo(220, 150)
 
-    ctx.lineCap = 'square'
+    
     ctx.lineCap = 'round'
 
     ctx.moveTo(280, 40)
@@ -56,8 +56,22 @@
 
     ctx.moveTo(320, 40)
     ctx.lineTo(320, 150)
-
+    ctx.closePath()
     ctx.stroke()
+
+    // lineJoin
+    ctx.lineJoin = 'bevel'
+    ctx.strokeStyle = '#00f0de'
+    ctx.lineCap = 'round'
+    ctx.lineWidth = 8
+    ctx.beginPath()
+    ctx.moveTo(50, 300)
+    ctx.lineTo(70, 340)
+    ctx.lineTo(90, 300)
+    ctx.lineTo(120, 360)
+    ctx.stroke()
+
+    
   </script>
 </body>
 </html>
