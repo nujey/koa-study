@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="800" height="500"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+
+    ctx.strokeStyle = '#f00'
+    ctx.lineWidth = 10
+    ctx.beginPath()
+    ctx.moveTo(5, 10)
+    ctx.lineTo(5, 100)
+    ctx.stroke()
+
+    var lineCap = '线条末端样式'['butt', 'round', 'square']
+    var lineJoin = 'type 设定线条与线条之间接合处的样式'
+    var miterLimit = 'value 限制两条线交界处的最大长度'
+    var getLineDash = getLineDash()
+    setLineDash(segments)
+    lineDashOffset = value
+
+  </script>
+</body>
+</html>
