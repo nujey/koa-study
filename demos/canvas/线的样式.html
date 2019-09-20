@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="800" height="500"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+
+    ctx.strokeStyle = '#f00'
+    ctx.lineWidth = 10
+    ctx.beginPath()
+    ctx.moveTo(5, 10)
+    ctx.lineTo(5, 100)
+    ctx.closePath()
+    ctx.stroke()
+    
+    var lineCap = '线条末端样式'['butt', 'round', 'square']
+    var lineJoin = 'type 设定线条与线条之间接合处的样式'['round', 'bevel', 'miter']
+    var miterLimit = 'value 限制两条线交界处的最大长度'
+    // var getLineDash = getLineDash()
+    // setLineDash(segments)
+    var lineDashOffset = '设置虚线样式的起始偏移量'
+
+    // 创建路径
+    ctx.strokeStyle = '#09f';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(200,50);
+    ctx.lineTo(340,50);
+
+    ctx.moveTo(200,140);
+    ctx.lineTo(340,140);
+
+    ctx.stroke();
+
+    ctx.strokeStyle = '#0dff0f'
+    ctx.lineWidth = 15
+   
+    ctx.beginPath()
+
+    ctx.moveTo(220, 40)
+    ctx.lineTo(220, 150)
+
+    
+    ctx.lineCap = 'round'
+
+    ctx.moveTo(280, 40)
+    ctx.lineTo(280, 150)
+
+    ctx.moveTo(320, 40)
+    ctx.lineTo(320, 150)
+    ctx.closePath()
+    ctx.stroke()
+
+    // lineJoin
+    ctx.lineJoin = 'bevel'
+    ctx.strokeStyle = '#00f0de'
+    ctx.lineCap = 'round'
+    ctx.lineWidth = 8
+    ctx.beginPath()
+    ctx.moveTo(50, 300)
+    ctx.lineTo(70, 340)
+    ctx.lineTo(90, 300)
+    ctx.lineTo(120, 360)
+    ctx.stroke()
+
+    var setLineDash = '接受一个数组，指定线段与间隙的交替'
+    var lineDashOffset = '属性设置起始偏移量'
+    
+    var offset = 0
+
+    function march() {
+      console.log(111)
+      offset++
+      if (offset > 16) {
+        offset = 0
+      }
+      // ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.setLineDash([4, 2])
+      ctx.lineDashOffset = -offset
+      ctx.strokeRect(10, 10, 100, 100)
+
+      setTimeout(march, 800)
+    }
+    march()
+  </script>
+</body>
+</html>

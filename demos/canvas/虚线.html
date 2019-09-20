@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="800" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas')
+    var ctx = canvas.getContext('2d')
+    var setLineDash = '接受一个数组，指定线段与间隙的交替'
+    var lineDashOffset = '属性设置起始偏移量'
+    
+    var offset = 0
+
+    ctx.strokeStyle = '#efa00f'
+    ctx.lineWidth = 5
+    ctx.globalAlpha = 0.6
+    ctx.lineCap = 'butt'
+    function march() {
+      offset++
+      if (offset > 16) {
+        offset = 0
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.setLineDash([6, 3])
+      ctx.lineDashOffset = offset
+      ctx.strokeRect(10, 10, 100, 100)
+
+      // setTimeout(march, 100)
+    }
+    march()
+  </script>
+</body>
+</html>

@@ -7,71 +7,41 @@
   <title>Document</title>
 </head>
 <body>
-  <canvas id="canvas" width="800" height="500"></canvas>
+  <canvas id="canvas" width="800" height="400"></canvas>
   <script>
     var canvas = document.getElementById('canvas')
-    const ctx = canvas.getContext('2d')
+    var ctx = canvas.getContext('2d')
 
+    var desc = '可以给图形fillStyle strokeStyle属性'
+    var createLineGradient = '(x1, y1, x2, y2) 表示渐变的起点 终点'
+    var createRadialGradient = '(x1, y1, r1, x2, y2, r2) 前三个参数以x1, y1为原点，半径为r1的圆 后面也一样'
 
-    ctx.strokeStyle = '#f00'
-    ctx.lineWidth = 10
-    ctx.beginPath()
-    ctx.moveTo(5, 10)
-    ctx.lineTo(5, 100)
-    ctx.closePath()
-    ctx.stroke()
-    
-    var lineCap = '线条末端样式'['butt', 'round', 'square']
-    var lineJoin = 'type 设定线条与线条之间接合处的样式'['round', 'bevel', 'miter']
-    var miterLimit = 'value 限制两条线交界处的最大长度'
-    // var getLineDash = getLineDash()
-    // setLineDash(segments)
-    var lineDashOffset = '设置虚线样式的起始偏移量'
-
-    // 创建路径
-    ctx.strokeStyle = '#09f';
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.moveTo(200,50);
-    ctx.lineTo(340,50);
-
-    ctx.moveTo(200,140);
-    ctx.lineTo(340,140);
-
-    ctx.stroke();
-
-    ctx.strokeStyle = '#0dff0f'
-    ctx.lineWidth = 15
-   
-    ctx.beginPath()
-
-    ctx.moveTo(220, 40)
-    ctx.lineTo(220, 150)
+    var addColorStop = '给canvasRradient上色'
 
     
-    ctx.lineCap = 'round'
+    var lineargradient = ctx.createLinearGradient(0, 0, 150, 150)
+    var radialgradient = ctx.createRadialGradient(35, 35, 10, 80, 80, 50)
 
-    ctx.moveTo(280, 40)
-    ctx.lineTo(280, 150)
+    lineargradient.addColorStop(0, '#fff')
+    lineargradient.addColorStop(1, '#000')
 
-    ctx.moveTo(320, 40)
-    ctx.lineTo(320, 150)
-    ctx.closePath()
-    ctx.stroke()
+    radialgradient.addColorStop(0, '#0ff')
+    radialgradient.addColorStop(0.9, '#f0f')
+    radialgradient.addColorStop(1, 'rgba(1,159,98,0)')
+    ctx.fillStyle = radialgradient
+    // ctx.strokeStyle = radialgradient
+    ctx.fillRect(10, 10, 80, 80)
 
-    // lineJoin
-    ctx.lineJoin = 'bevel'
-    ctx.strokeStyle = '#00f0de'
-    ctx.lineCap = 'round'
-    ctx.lineWidth = 8
-    ctx.beginPath()
-    ctx.moveTo(50, 300)
-    ctx.lineTo(70, 340)
-    ctx.lineTo(90, 300)
-    ctx.lineTo(120, 360)
-    ctx.stroke()
+    var radgrad = ctx.createRadialGradient(145,145,10, 150,150,30);
+    radgrad.addColorStop(0, '#A7D30C');
+    radgrad.addColorStop(0.9, '#019F62');
+    radgrad.addColorStop(1, 'rgba(1,159,98,0)');
 
-    
+    ctx.fillStyle = radgrad;
+    ctx.fillRect(50,50,150,150);
+    // ctx.arc(100, 100, 15, 0, 2 * Math.PI)
+    // ctx.strokeRect(100, 100, 130, 130)
+
   </script>
 </body>
 </html>
