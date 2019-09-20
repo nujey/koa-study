@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> 
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+
+  <style>
+    #container { width: 500px; height: 380px }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=31b63a747017bc1389496f3de493f833"></script>
+  <script>
+    var map = new AMap.Map('container', {
+      zoom: 11,
+      center: [120.20523, 30.25727],
+      viewMode: '3D',
+      resizeEnable: false
+    })
+    
+    //  添加实时路况
+    var trafficLayer = new AMap.TileLayer.Traffic({
+      zIndex: 10
+    })
+    map.add(trafficLayer)
+    
+    var marker = new AMap.Marker({
+      position: [120.2423, 30.20727]
+    })
+    var marker1 = new AMap.Marker({
+      position: [120.2523, 30.21727]
+    })
+    map.add([marker, marker1])
+
+    var lineArr = [
+      [120.2123, 30.21727],
+      [120.0223, 30.22727],
+      [120.2323, 30.23727],
+      [120.0423, 30.24727]
+    ]
+    var polyline = new AMap.Polyline({
+      path: lineArr,
+      strokeColor: '#3366ff',
+      strokeWeight: 5,
+      strokeStyle: 'dotted'
+    })
+    map.add(polyline)
+
+    var infoWindow = new AMap.InfoWindow({
+      isCustom: true,
+      content: '<div>哪吒嘿哈！</div>',
+      offset: new AMap.Pixel(16, -45)
+    })
+    var onMarkerClick = function(e) {
+      infoWindow.open(map, e.target.getPosition())
+    }
+    marker.on('click', onMarkerClick)
+  </script>
+</body>
+</html>
