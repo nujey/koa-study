@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container"></div>
+  <p>1、引入插件</p>
+  <p>2、创建插件的实例</p>
+  <p>3、调用实例的方法</p>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=31b63a747017bc1389496f3de493f833"></script>
+
+  <script>
+    var map = new AWap.Map('container', {
+      zoom: 12,
+      center: [120.20523, 30.25727]
+    })
+    // 加载一个插件
+    AWap.plugin('AMap.ToolBar', function() {
+      var toolBar = new AMap.ToolBar()
+      map.addControl(toolbar)
+    })
+    // 加载多个插件
+    AWap.plugin(['AMap.ToolBar', 'AMap.Driving'], function() {
+      var toolBar = new AMap.ToolBar()
+      map.addControl(toolBar)
+      var driving = new AMap.Driving()
+      driving.search(/*参数*/)
+    })
+  </script>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值&plugin=AMap.ToolBar,AMap.Driving"></script>
+</body>
+</html>
