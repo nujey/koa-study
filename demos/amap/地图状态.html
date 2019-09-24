@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>地图状态</title>
+</head>
+<body>
+    <p>地图状态包括地图中心点、缩放级别等内容。</p>
+    <p> 设置、获取地图中心点和缩放级别的方法</p>
+    <p> 根据覆盖物范围调整视野</p>
+    <p>常用方法列表</p>
+    <div id="container" style="width: 800px; height: 300px;"></div>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=31b63a747017bc1389496f3de493f833"></script>
+    <script>
+      var map = new AMap.map('container')
+
+      var position = new AMap.LngLat(116, 39) // 标准写法
+      map.setCenter(position)
+      // 获取地图中心点
+      var currentCenter = map.getCenter()
+
+      // 设置、获取地图缩放级别
+      map.setZoom(13)
+      // 获取地图级别
+      var currentZoom = map.getZoom()
+
+      // 设置地图中心点和缩放级别（setZoomAndCenter）
+      map.setZoomAndCenter(14, [116, 39])
+
+      // 无参数 默认包括所有覆盖物的情况
+      map.setFitView()
+      // 传入覆盖物数组 
+      map.setFitView([polyline, marker1])
+
+    </script>
+</body>
+</html>
