@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=31b63a747017bc1389496f3de493f833"></script>
+  <script>
+    var position = new AMap.LngLat(116, 39)
+    var position1 = [116, 39]
+    var map = new AMap.Center('container', {
+      center: position
+    })
+
+    var path = [new AMap.LngLat(116, 39), new AMap.LngLat(116, 40)]
+    var path = [[116, 39], [116, 40]]
+
+    var polyline = new AMap.Polyline({
+      path: path
+    })
+    map.add(polyline)
+
+    // 两点之间的距离
+    var p1 = new AMap.LngLat(116, 39)
+    var p2 = new AMap.LngLat(118, 38)
+    var distance = p1.distance(p2)
+    var p3 = p1.offset(100, 50) // p1点向东100m 向北50m 的经纬度
+
+    // 像素点 AMap.Pixel
+    var offset = new AMap.Pixel(-16, -30)
+    var marker = new AMap.Marker({
+      offset: offset,
+      icon: 'xxx.png'
+    })
+    map.add(marker)
+
+    // 像素尺寸 AMap.Size
+    var mapSize = map.getSize()
+    var width = mapSize.width
+    var height = mapSize.height
+
+    var marker = new AMap.Marker({
+      position: [116.405467, 39.907761],
+      icon: new AMap.Icon({
+        size: new AMap.Size(40, 50), //  图标大小
+        image: "https://webapi.amap.com/theme/v1.3/images/newpc/way_btn2.png",
+        imageOffset: new AMap.Pixel(0, -60)
+      })
+    }) 
+    map.add(marker)
+
+    // 经纬度矩形边界  AMap.Bounds
+    var map = new AMap.Map('container', {
+      zoom: 17,
+      viewMode: '3D'
+    })
+    var arrayBounds = map.getBounds()
+    var path = arrayBounds.bounds
+    var isPointInBounds = arrayBounds.contains(new AMap.LngLat(116, 39))
+    
+  </script>
+</body>
+</html>
