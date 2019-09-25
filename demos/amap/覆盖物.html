@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container" style="width: 800px; height: 500px;"></div>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=31b63a747017bc1389496f3de493f833"></script>
+  <script>
+    var map = new AMap.Map('container', {
+      zoom: 15,
+      center: [116.405467, 39.907761]
+    })
+    // 构造点标记
+    var marker = new AMap.Marker({
+      icon: "https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
+      position: [116.405467, 39.907761]
+    })
+    // 构造矢量图形
+    var circle = new AMap.Circle({
+      center: new AMap.LngLat('116.405467', '39.907761'), // 圆心位置
+      radius: 500, // 半径
+      strokeColor: '#f33', // 线颜色
+      strokeOpacity: 1, // 线透明度
+      strokeWeight: 3, // 线粗细度
+      fillColor: '#ee2200', // 填充颜色
+      fillOpacity: 0.35 // 填充透明度
+    })
+    // 单独将点标记添加到地图上
+    map.add(marker)
+    // 传入一个覆盖物数组 点标记和矢量圆添加到地图上
+    map.add([marker, circle])
+    // 获取已经添加的覆盖物
+    var overlays = map.getAllOverlays('marker')
+    console.log(overlays)
+
+    // 移除覆盖物
+    setTimeout(() => {
+      map.remove(marker)
+    }, 2000)
+
+    // 添加/设置/获取/移除图层
+
+    var layer1 = new AMap.TileLayer.Satellite()
+    var layer2 = new AMap.TileLayer.RoadNet()
+    var layers = [layer1, layer2]
+    map.add(layers)
+
+    // 设置图层
+    var layers = [
+      new AMap.TileLayer.Satellite(),
+      new AMap.TileLayer.RoadNet()
+    ]
+    setTimeout(() => {
+      map.setLayers(layers)
+    }, 3000)
+
+    map.getLayers()
+
+    map.remove(layer1)
+  </script>
+</body>
+</html>
