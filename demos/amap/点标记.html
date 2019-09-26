@@ -17,13 +17,51 @@
       var map = new AMap.Map('container', {
         zoom: 10, // 地图的缩放级别
         center: [116.397428, 39.90923],
-        layers: [new AMap.TileLayer.Satellite()], // 设置图层 可以设置多个
-        mapStyle: "....sasdas", // 设置地图的显示样式
-        viewMode: '2D', // 设置地图模式
+        // layers: [new AMap.TileLayer.Satellite()], // 设置图层 可以设置多个
+        // mapStyle: "....sasdas", // 设置地图的显示样式
+        viewMode: '3D', // 设置地图模式
+        pitch: 45,
         lang: 'zh_cn' // 设置地图的语言类型
       })
 
-      // 
+      // 点标记
+      var marker = new AMap.Marker({
+        position: new AMap.LngLat(116.39, 39.90),
+        title: '北京'
+      })
+      var marker2 = new AMap.Marker({
+        position: new AMap.LngLat(120.20, 35.92),
+        title: '北京'
+      })
+      var marker3 = new AMap.Marker({
+        position: new AMap.LngLat(120.20, 30.93),
+        title: '北京'
+      })
+      var marker4 = new AMap.Marker({
+        position: [100.20, 35.93],
+        title: '北京',
+        icon: "https://webapi.amap.com/theme/v1.3/images/newpc/way_btn2.png",
+        offset: new AMap.Pixel(-10, 10)
+      })
+      // map.add(marker)
+      map.add([marker, marker2, marker3, marker4])
+
+      var icon = new AMap.Icon({
+        size: new AMap.Size(40, 50), // 图标尺寸
+        image: "https://webapi.amap.com/theme/v1.3/images/newpc/way_btn2.png",
+        imageOffset: new AMap.Pixel(0, -60),
+        imageSize: new AMap.Size(40, 50)
+      })
+
+      var marker = new AMap.Marker({
+        position: new AMap.LngLat(116.405467, 39.907761),
+        offset: new AMap.Pixel(-10, -10),
+        icon: icon,
+        title: '北京',
+        zoom: 13
+      })
+      marker2.setIcon(icon)
+      map.add(marker)
     </script>
 </body>
 </html>
