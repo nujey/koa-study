@@ -44,7 +44,7 @@
         offset: new AMap.Pixel(-10, 10)
       })
       // map.add(marker)
-      map.add([marker, marker2, marker3, marker4])
+      map.add([marker])
 
       var icon = new AMap.Icon({
         size: new AMap.Size(40, 50), // 图标尺寸
@@ -62,6 +62,18 @@
       })
       marker2.setIcon(icon)
       map.add(marker)
+
+
+      // 自定义内容标记
+      var content = '<div class="marker-route marker-marker-bus-from"></div>';
+      var marker = new AMap.Marker({
+        icon: "https://a.amap.com/jsapi_demos/static/demo-center/marker/marker-bottom-left.png",
+        position: [116.418481, 39.90833],
+        offset: new AMap.Pixel(0, 0),
+        anchor: 'bottom-left'
+      })
+      map.add(marker)
+      
     </script>
 </body>
 </html>
