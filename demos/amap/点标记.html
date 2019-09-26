@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <div id="container" style="width:800px;height: 500px"></div>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=31b63a747017bc1389496f3de493f833"></script>
+    <script>
+      var map = new AMap.Map('container')
+      var map = new AMap.Map(document.getElementById("container"))
+
+      // 创建地图实例的时候 可以传入地图的初始化参数来设置地图的初始状态
+      var map = new AMap.Map('container', {
+        zoom: 10, // 地图的缩放级别
+        center: [116.397428, 39.90923],
+        layers: [new AMap.TileLayer.Satellite()], // 设置图层 可以设置多个
+        mapStyle: "....sasdas", // 设置地图的显示样式
+        viewMode: '2D', // 设置地图模式
+        lang: 'zh_cn' // 设置地图的语言类型
+      })
+
+      // 
+    </script>
+</body>
+</html>

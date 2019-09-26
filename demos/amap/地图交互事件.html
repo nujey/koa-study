@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container" style="width: 800px; height: 500px;"></div>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=31b63a747017bc1389496f3de493f833"></script>
+  <script>
+    var map = new AMap.Map('container', {
+      zoom: 15,
+      pitch: 75,
+      center: [116.397428, 39.9022],
+      viewMode: '3D'
+    })
+    
+    map.on('click', function(ev) {
+      console.log(ev)
+    })
+  </script>
+</body>
+</html>
